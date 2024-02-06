@@ -14,6 +14,7 @@
         table {
             width: 500px;
             border-collapse: collapse;
+            position: relative;
         }
 
         td, th {
@@ -21,9 +22,27 @@
             padding: 10px;
         }
 
+        caption {
+            font-size: 1.5em;
+            font-weight: bolder;
+            padding: 10px;
+            background-color: lightgrey;
+
+        }
+
         thead, tfoot {
             background-color: gray;
             color: white;
+        }
+
+        thead > tr > th {
+            position: sticky;
+            top: -1px;
+            background-color: gray;
+        }
+
+        tbody > tr:nth-child(2n) {
+            background-color: lightgray;
         }
 
         td.num {
@@ -35,8 +54,10 @@
 <body>
     <h1>uso de tabelas grandes</h1>
     <!--
+        nth-child(2n) > serve para fazer o efeito zebrado
         ANATOMIA PARA TABELAS GRANDES
         TABLE
+            CAPTION
             THEAD
                 TR, TD, TH
             TBODY
@@ -46,20 +67,21 @@
     -->
 
     <TABLE>
+        <caption>populaçao das unidades federativas</caption>
         <thead>
             <tr>
-                <th>estado</th>
-                <th>populaçao</th>
+                <th scope="col">estado</th>
+                <th scope="col" style="width: 50px;">populaçao</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td>sao paulo</td>
-                <td>45 919 049</td>
+                <td class="num">45 919 049</td>
             </tr>
             <tr>
                 <td>minas gerais</td>
-                <td>21 168 791</td>
+                <td class="num">21 168 791</td>
             </tr>
             <tr>
                 <td>Rio de Janeiro</td>
@@ -212,8 +234,8 @@
         </tbody>
         <tfoot>
             <tr>
-                <th> total de habitantes</th>
-                <td><strong>210.147.125</strong></td>
+                <th scope="row"> total de habitantes</th>
+                <td class="num"><strong>210.147.125</strong></td>
             </tr>
         </tfoot>
     </TABLE>
