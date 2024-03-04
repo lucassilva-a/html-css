@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+/* typical Device br
+pequenas telas: ate 600px
+celular: de 600px ate 768px
+tablet: 768px ate 992px
+desktop: 992px ate 1200px
+garndes telas: acima de 1200px
+*/
+
+@media print { /* IMPRESSAO*/  }
+    * {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    body {
+        background-image: url(../imagens/back-print.jpg) /* desnecessario*/;
+        
+}
+
+main {
+    width: 400px;
+    border: 2px solid black;
+}
+
+main::after {
+    content: 'essa impressao foi feita atraves do site lucas';
+    text-decoration: overline;
+}
+
+main h1 {
+    text-shadow: none;
+}
+@media screen and (min-width: 768px) and (max-width: 992px) { /* TABLET*/
+    body {
+        background-image: url(../imagens/back-tablet.jpg);
+    }
+    img#phone  { display: none;}
+    img#tablet { display: block; }
+    img#print { display: none; }
+    img#pc { display: none; }
+    img#tv {display: none; }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) { /* DESKTOP*/
+    body {
+        background-image: url(../imagens/back-pc.jpg);
+
+    }
+    img#phone  { display: none;}
+    img#tablet { display: none; }
+    img#print { display: none; }
+    img#pc { display: block; }
+    img#tv {display: none; }
+}
+
+@media screen and (min-width: 1200px) { /* TELAS GRANDES*/
+    body {
+        background-image: url(../imagens/back-tv.jpg)
+    }
+    img#phone  { display: none;}
+    img#tablet { display: none; }
+    img#print { display: none; }
+    img#pc { display: none; }
+    img#tv {display: block; }
+}
